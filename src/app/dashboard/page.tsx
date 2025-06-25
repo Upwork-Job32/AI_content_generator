@@ -26,8 +26,7 @@ export default function Dashboard() {
   const [modelImage, setModelImage] = useState<File | null>(null);
   const [clothingImage, setClothingImage] = useState<File | null>(null);
   const [effectPrompt, setEffectPrompt] = useState("");
-  const [isGenerating, setIsGenerating] = useState(false);
-  const [generatedVideo, setGeneratedVideo] = useState<string | null>(null);
+
   const [isPlaying, setIsPlaying] = useState(false);
 
   const handleFileUpload = (
@@ -41,14 +40,11 @@ export default function Dashboard() {
   };
 
   const handleGenerate = async () => {
-    setIsGenerating(true);
     setStep("generating");
 
     // Simulate generation process
     setTimeout(() => {
-      setGeneratedVideo("/sample-video.mp4"); // This would be your actual generated video
       setStep("result");
-      setIsGenerating(false);
     }, 3000);
   };
 
@@ -63,7 +59,6 @@ export default function Dashboard() {
     setModelImage(null);
     setClothingImage(null);
     setEffectPrompt("");
-    setGeneratedVideo(null);
     setIsPlaying(false);
   };
 
